@@ -1,4 +1,4 @@
-package dev.stateholder
+package dev.stateholder.extensions
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -6,6 +6,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import dev.stateholder.StateHolder
+import dev.stateholder.StateOwner
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

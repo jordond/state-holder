@@ -4,7 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 
 plugins {
     alias(libs.plugins.multiplatform)
-    alias(libs.plugins.android.library)
 }
 
 kotlin {
@@ -12,19 +11,14 @@ kotlin {
 
     targetHierarchy.default()
 
-    android {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
-
     jvm()
     js(IR) {
         browser()
         binaries.executable()
     }
+
+    watchos()
+    tvos()
 
     listOf(
         iosX64(),
@@ -50,23 +44,5 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.core)
-                implementation(libs.androidx.appcompat)
-                implementation(libs.androidx.lifecycle)
-            }
-        }
-    }
-}
-
-android {
-    namespace = "dev.stateholder"
-
-    compileSdk = libs.versions.sdk.compile.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.sdk.min.get().toInt()
     }
 }

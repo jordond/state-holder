@@ -31,4 +31,7 @@ gradleEnterprise {
 
 rootProject.name = "StateHolder"
 
-include(":core")
+include(
+    ":core",
+    ":extensions-android",
+)

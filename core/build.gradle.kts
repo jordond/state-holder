@@ -1,9 +1,10 @@
+@file:Suppress("UNUSED_VARIABLE", "OPT_IN_USAGE")
+
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.android.library)
 }
 
-@OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     targetHierarchy.default()
 
@@ -36,9 +37,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                //put your multiplatform dependencies here
+                implementation(libs.kotlin.coroutines)
             }
         }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))

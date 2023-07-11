@@ -1,11 +1,15 @@
 @file:Suppress("UNUSED_VARIABLE", "OPT_IN_USAGE")
 
+import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
+
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.android.library)
 }
 
 kotlin {
+    explicitApi = ExplicitApiMode.Strict
+
     targetHierarchy.default()
 
     android {
@@ -44,6 +48,14 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+            }
+        }
+
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.androidx.core)
+                implementation(libs.androidx.appcompat)
+                implementation(libs.androidx.lifecycle)
             }
         }
     }

@@ -31,7 +31,7 @@ kotlin {
         macosX64(),
     ).forEach { target ->
         target.binaries.framework {
-            baseName = "shared"
+            baseName = "stateholder-core"
         }
     }
 

@@ -58,10 +58,9 @@ jobs:
     strategy:
       matrix:
         config: [
-          { target: "android", os: "ubuntu-latest", tasks: ":demo:kmm:androidApp:assembleRelease", continueOnError: false },
-          { target: "osx", os: "macos-latest", tasks: ":demo:kmm:desktopApp:packageDistributionForCurrentOS", continueOnError: false },
-          { target: "windows", os: "windows-latest", tasks: ":demo:kmm:desktopApp:packageDistributionForCurrentOS", continueOnError: true },
-          { target: "linux", os: "ubuntu-latest", tasks: ":demo:kmm:desktopApp:packageDistributionForCurrentOS", continueOnError: false }
+          { target: "osx", os: "macos-latest", tasks: "assemble", continueOnError: false },
+          { target: "windows", os: "windows-latest", tasks: "assemble", continueOnError: false },
+          { target: "linux", os: "ubuntu-latest", tasks: "assemble", continueOnError: false }
         ]
     runs-on: ${{ matrix.config.os }}
     name: Build ${{ matrix.config.target }}
@@ -88,7 +87,6 @@ jobs:
 
       - name: Cache Konan
         uses: actions/cache@v3
-        if: startsWith(matrix.config.os, 'macos')
         with:
           path: |
             ~/.konan/caches

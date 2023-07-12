@@ -1,7 +1,7 @@
 # State Holder
 
 ![Maven Central](https://img.shields.io/maven-central/v/dev.stateholder/core)
-[![Kotlin](https://img.shields.io/badge/kotlin-v1.9-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-v1.9.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Build](https://github.com/jordond/state-holder/actions/workflows/ci.yml/badge.svg)](https://github.com/jordond/state-holder/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/jordond/state-holder)](http://www.apache.org/licenses/LICENSE-2.0)
 
@@ -60,7 +60,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("dev.stateholder:core:1.0.0")
+                implementation("dev.stateholder:core:1.0.0-alpha01")
             }
         }
     }
@@ -74,10 +74,10 @@ For an Android only project, add the dependency to app level `build.gradle.kts`:
 ```kotlin
 dependencies {
     // The core library
-    implementation("dev.stateholder:core:1.0.0")
+    implementation("dev.stateholder:core:1.0.0-alpha01")
 
     // Optional Android extensions
-    implementation("dev.stateholder:extensions-android:1.0.0")
+    implementation("dev.stateholder:extensions-android:1.0.0-alpha01")
 }
 ```
 
@@ -85,7 +85,7 @@ dependencies {
 
 ```toml
 [versions]
-stateholder = "1.0.0"
+stateholder = "1.0.0-alpha01"
 
 [libraries]
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }

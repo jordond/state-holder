@@ -18,8 +18,6 @@ kotlin {
         binaries.executable()
     }
     jvm()
-    watchos()
-    tvos()
 
     listOf(
         iosX64(),

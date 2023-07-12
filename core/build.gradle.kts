@@ -18,8 +18,6 @@ kotlin {
         binaries.executable()
     }
     jvm()
-    linuxArm64()
-    linuxX64()
     watchos()
     tvos()
 

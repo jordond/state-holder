@@ -1,0 +1,43 @@
+public abstract interface class dev/stateholder/StateHolder {
+	public static final field Companion Ldev/stateholder/StateHolder$Companion;
+	public abstract fun addSource (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun getValue (Ldev/stateholder/StateOwner;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun update (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class dev/stateholder/StateHolder$Companion {
+}
+
+public final class dev/stateholder/StateHolder$DefaultImpls {
+	public static fun getValue (Ldev/stateholder/StateHolder;Ldev/stateholder/StateOwner;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public final class dev/stateholder/StateHolderKt {
+	public static final fun collectToState (Lkotlinx/coroutines/flow/Flow;Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public static final fun stateContainer (Ldev/stateholder/StateProvider;)Ldev/stateholder/StateHolder;
+	public static final fun stateContainer (Ljava/lang/Object;)Ldev/stateholder/StateHolder;
+}
+
+public abstract interface class dev/stateholder/StateOwner {
+	public static final field Companion Ldev/stateholder/StateOwner$Companion;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public final class dev/stateholder/StateOwner$Companion {
+}
+
+public final class dev/stateholder/StateOwnerKt {
+	public static final fun asStateOwner (Ldev/stateholder/StateHolder;)Ldev/stateholder/StateOwner;
+}
+
+public abstract interface class dev/stateholder/StateProvider {
+	public abstract fun provide ()Ljava/lang/Object;
+}
+
+public final class dev/stateholder/StateProviderKt {
+	public static final fun asStateProvider (Ljava/lang/Object;)Ldev/stateholder/StateProvider;
+	public static final fun provideState (Ljava/lang/Object;)Ldev/stateholder/StateProvider;
+	public static final fun provideState (Lkotlin/jvm/functions/Function0;)Ldev/stateholder/StateProvider;
+}
+

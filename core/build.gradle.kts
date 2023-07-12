@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
 
 plugins {
     alias(libs.plugins.multiplatform)
+    alias(libs.plugins.dokka)
+    alias(libs.plugins.publish)
 }
 
 kotlin {
@@ -11,12 +13,13 @@ kotlin {
 
     targetHierarchy.default()
 
-    jvm()
     js(IR) {
         browser()
         binaries.executable()
     }
-
+    jvm()
+    linuxArm64()
+    linuxX64()
     watchos()
     tvos()
 

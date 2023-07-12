@@ -14,6 +14,8 @@ and `StateFlow`.
 
 You can view the KDocs at [docs.stateholder.dev](https://docs.stateholder.dev).
 
+**Note**: This library is still in alpha, documentation is not finished.
+
 ## Table of Contents
 
 - [Motivation](#motivation)

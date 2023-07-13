@@ -36,17 +36,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
-      - name: Cache Konan
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.konan/caches
-            ~/.konan/dependencies
-            ~/.konan/kotlin-native-prebuilt-macos-*
-          key: ${{ runner.os }}-konan-${{ hashFiles('**/gradle/libs.versions.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-konan-
-
       - name: Gradle Wrapper Validation
         uses: gradle/wrapper-validation-action@v1
 

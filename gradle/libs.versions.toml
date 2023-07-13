@@ -38,3 +38,4 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 
 [bundles]
+androidx = ["androidx-core", "androidx-lifecycle", "androidx-appcompat"]

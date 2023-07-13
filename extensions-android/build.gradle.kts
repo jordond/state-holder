@@ -40,8 +40,6 @@ kotlin {
 dependencies {
     implementation(project(":core"))
 
-    implementation(libs.androidx.core)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.lifecycle)
+    implementation(libs.bundles.androidx)
     testImplementation(libs.junit)
 }

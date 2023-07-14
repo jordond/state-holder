@@ -42,6 +42,7 @@ kotlin {
 
                 implementation(compose.runtime)
                 implementation(libs.kotlin.coroutines)
+                api(libs.essenty.lifecycle)
             }
         }
 

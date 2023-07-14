@@ -1,0 +1,9 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:core
+dev.stateholder
+module:extensions-android
+dev.stateholder.extensions
+module:extensions-compose
+dev.stateholder.extensions

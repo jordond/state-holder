@@ -64,10 +64,10 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("dev.stateholder:core:1.0.0-alpha01")
+                implementation("dev.stateholder:core:1.0.0-alpha02")
               
                 // Optional Compose extensions
-                implementation("dev.stateholder.extensions-compose:1.0.0-alpha01")
+                implementation("dev.stateholder.extensions-compose:1.0.0-alpha02")
             }
         }
     }
@@ -81,13 +81,13 @@ For an Android only project, add the dependency to app level `build.gradle.kts`:
 ```kotlin
 dependencies {
     // The core library
-    implementation("dev.stateholder:core:1.0.0-alpha01")
+    implementation("dev.stateholder:core:1.0.0-alpha02")
 
     // Optional Compose extensions
-    implementation("dev.stateholder:extensions-compose:1.0.0-alpha01")
+    implementation("dev.stateholder:extensions-compose:1.0.0-alpha02")
   
     // Optional Android extensions
-    implementation("dev.stateholder:extensions-android:1.0.0-alpha01")
+    implementation("dev.stateholder:extensions-android:1.0.0-alpha02")
 }
 ```
 
@@ -95,7 +95,7 @@ dependencies {
 
 ```toml
 [versions]
-stateholder = "1.0.0-alpha01"
+stateholder = "1.0.0-alpha02"
 
 [libraries]
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }

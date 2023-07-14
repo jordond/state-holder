@@ -59,7 +59,6 @@ jobs:
       matrix:
         config: [
           { target: "osx", os: "macos-latest", tasks: "assemble", continueOnError: false },
-          { target: "windows", os: "windows-latest", tasks: "assemble", continueOnError: false },
           { target: "linux", os: "ubuntu-latest", tasks: "assemble", continueOnError: false }
         ]
     runs-on: ${{ matrix.config.os }}

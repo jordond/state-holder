@@ -48,7 +48,8 @@ Currently this library is in a very early stage. There are a few more features I
 as:
 
 - [ ] Support for retaining state across process death on Android
-- [ ] Extensions for other platforms (iOS, JS, JVM, etc)
+- [x] Extensions for other platforms (iOS, JS, JVM, etc)
+- [ ] Documentation
 
 ## Setup
 
@@ -64,6 +65,9 @@ kotlin {
         commonMain {
             dependencies {
                 implementation("dev.stateholder:core:1.0.0-alpha01")
+              
+                // Optional Compose extensions
+                implementation("dev.stateholder.extensions-compose:1.0.0-alpha01")
             }
         }
     }
@@ -79,6 +83,9 @@ dependencies {
     // The core library
     implementation("dev.stateholder:core:1.0.0-alpha01")
 
+    // Optional Compose extensions
+    implementation("dev.stateholder:extensions-compose:1.0.0-alpha01")
+  
     // Optional Android extensions
     implementation("dev.stateholder:extensions-android:1.0.0-alpha01")
 }
@@ -92,6 +99,7 @@ stateholder = "1.0.0-alpha01"
 
 [libraries]
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }
+stateholder-extensions-compose = { module = "dev.stateholder:extensions-compose", version.ref = "stateholder" }
 stateholder-extensions-android = { module = "dev.stateholder:extensions-android", version.ref = "stateholder" }
 ```
 
@@ -108,11 +116,19 @@ The `:core` artifact provides the following interfaces:
 
 ### Creating a StateHolder
 
+WIP
+
 ### Updating State
+
+WIP
 
 ### Consuming State
 
+WIP
+
 ### Android Extensions
+
+WIP
 
 ## License
 

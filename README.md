@@ -1,10 +1,11 @@
 # State Holder
 
 ![Maven Central](https://img.shields.io/maven-central/v/dev.stateholder/core)
-[![Kotlin](https://img.shields.io/badge/kotlin-v1.9.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-v1.8.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Build](https://github.com/jordond/state-holder/actions/workflows/ci.yml/badge.svg)](https://github.com/jordond/state-holder/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/jordond/state-holder)](http://www.apache.org/licenses/LICENSE-2.0)
 
+[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-v1.4.1-blue)](https://github.com/JetBrains/compose-multiplatform)
 ![badge-jvm](http://img.shields.io/badge/platform-jvm-6EDB8D.svg?style=flat)
 ![badge-darwin](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
 ![badge-js](http://img.shields.io/badge/platform-js-F7DF1E.svg?style=flat)
@@ -47,7 +48,8 @@ Currently this library is in a very early stage. There are a few more features I
 as:
 
 - [ ] Support for retaining state across process death on Android
-- [ ] Extensions for other platforms (iOS, JS, JVM, etc)
+- [x] Extensions for other platforms (iOS, JS, JVM, etc)
+- [ ] Documentation
 
 ## Setup
 
@@ -62,7 +64,10 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("dev.stateholder:core:1.0.0-alpha01")
+                implementation("dev.stateholder:core:1.0.0-alpha02")
+              
+                // Optional Compose extensions
+                implementation("dev.stateholder.extensions-compose:1.0.0-alpha02")
             }
         }
     }
@@ -76,10 +81,13 @@ For an Android only project, add the dependency to app level `build.gradle.kts`:
 ```kotlin
 dependencies {
     // The core library
-    implementation("dev.stateholder:core:1.0.0-alpha01")
+    implementation("dev.stateholder:core:1.0.0-alpha02")
 
+    // Optional Compose extensions
+    implementation("dev.stateholder:extensions-compose:1.0.0-alpha02")
+  
     // Optional Android extensions
-    implementation("dev.stateholder:extensions-android:1.0.0-alpha01")
+    implementation("dev.stateholder:extensions-android:1.0.0-alpha02")
 }
 ```
 
@@ -87,10 +95,11 @@ dependencies {
 
 ```toml
 [versions]
-stateholder = "1.0.0-alpha01"
+stateholder = "1.0.0-alpha02"
 
 [libraries]
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }
+stateholder-extensions-compose = { module = "dev.stateholder:extensions-compose", version.ref = "stateholder" }
 stateholder-extensions-android = { module = "dev.stateholder:extensions-android", version.ref = "stateholder" }
 ```
 
@@ -107,11 +116,19 @@ The `:core` artifact provides the following interfaces:
 
 ### Creating a StateHolder
 
+WIP
+
 ### Updating State
+
+WIP
 
 ### Consuming State
 
+WIP
+
 ### Android Extensions
+
+WIP
 
 ## License
 

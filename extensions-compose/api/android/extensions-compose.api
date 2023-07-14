@@ -1,0 +1,4 @@
+public final class dev/stateholder/extensions/CollectAsState_androidKt {
+	public static final fun collectAsState (Ldev/stateholder/StateOwner;Lcom/arkivanov/essenty/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Landroidx/compose/runtime/Composer;II)Landroidx/compose/runtime/State;
+}
+

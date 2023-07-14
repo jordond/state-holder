@@ -1,11 +1,11 @@
 package dev.stateholder
 
 import dev.stateholder.internal.DefaultStateHolder
-import kotlin.reflect.KProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
+import kotlin.reflect.KProperty
 
 /**
  * A container for managing state.
@@ -59,7 +59,7 @@ public interface StateHolder<State> {
      * Example:
      *
      * ```
-     * val state: StateFlow<State> by stateContainer
+     * val state: StateFlow<State> by stateHolder
      * ```
      */
     public operator fun getValue(
@@ -83,7 +83,7 @@ public interface StateHolder<State> {
  *
  * @see [StateHolder]
  */
-public fun <State> stateContainer(
+public fun <State> stateHolder(
     initialStateProvider: StateProvider<State>,
 ): StateHolder<State> = StateHolder.create(initialStateProvider)
 
@@ -92,7 +92,7 @@ public fun <State> stateContainer(
  *
  * @see [StateHolder]
  */
-public fun <State> stateContainer(
+public fun <State> stateHolder(
     initialState: State,
 ): StateHolder<State> = StateHolder.create(provideState(initialState))
 

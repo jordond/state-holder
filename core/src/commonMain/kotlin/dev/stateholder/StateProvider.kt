@@ -7,7 +7,7 @@ package dev.stateholder
  * you can just use [provideState], like so:
  *
  * ```
- * val stateContainer = StateContainer.create(provideState(42))
+ * val stateHolder = StateHolder.create(provideState(42))
  * ```
  *
  * However sometimes we need to use a more complex state object that relies on outside sources. For
@@ -24,7 +24,7 @@ package dev.stateholder
  * }
  *
  * class MyModel @Inject constructor(stateProvider: MyStateProvider) : ViewModel() {
- *     private val container = stateContainer(stateProvider)
+ *     private val stateHolder = StateHolder(stateProvider)
  * }
  * ```
  *

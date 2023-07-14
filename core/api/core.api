@@ -15,8 +15,8 @@ public final class dev/stateholder/StateHolder$DefaultImpls {
 
 public final class dev/stateholder/StateHolderKt {
 	public static final fun collectToState (Lkotlinx/coroutines/flow/Flow;Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public static final fun stateContainer (Ldev/stateholder/StateProvider;)Ldev/stateholder/StateHolder;
-	public static final fun stateContainer (Ljava/lang/Object;)Ldev/stateholder/StateHolder;
+	public static final fun stateHolder (Ldev/stateholder/StateProvider;)Ldev/stateholder/StateHolder;
+	public static final fun stateHolder (Ljava/lang/Object;)Ldev/stateholder/StateHolder;
 }
 
 public abstract interface class dev/stateholder/StateOwner {

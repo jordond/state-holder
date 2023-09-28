@@ -2,7 +2,7 @@
 sdk-target = "33"
 sdk-compile = "33"
 sdk-min = "24"
-agp = "8.1.1"
+agp = "8.1.2"
 kotlin = "1.8.20"
 kotlin-coroutines = "1.7.3"
 versions = "0.48.0"

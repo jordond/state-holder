@@ -22,6 +22,7 @@ voyager = "1.0.0-rc07"
 [libraries]
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
 androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -43,4 +44,4 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 
 [bundles]
-androidx = ["androidx-core", "androidx-lifecycle", "androidx-appcompat"]
+androidx = ["androidx-core", "androidx-lifecycle", "androidx-viewmodel", "androidx-appcompat"]

@@ -1,4 +1,4 @@
-package dev.stateholder.voyager
+package dev.stateholder.extensions.voyager
 
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.coroutineScope

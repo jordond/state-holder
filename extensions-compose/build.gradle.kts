@@ -56,10 +56,15 @@ kotlin {
             }
         }
 
-        val nativeMain by getting {
-            dependencies {
-                implementation(libs.kotlin.coroutines)
-            }
+        val nativeMain by getting
+        val jvmMain by getting
+        val jsMain by getting
+
+        val nonAndroidMain by creating {
+            dependsOn(commonMain)
+            nativeMain.dependsOn(this)
+            jvmMain.dependsOn(this)
+            jsMain.dependsOn(this)
         }
     }
 }

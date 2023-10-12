@@ -1,6 +1,4 @@
-@file:Suppress("UNUSED_VARIABLE", "OPT_IN_USAGE")
-
-import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
+@file:Suppress("OPT_IN_USAGE")
 
 plugins {
     alias(libs.plugins.multiplatform)
@@ -9,7 +7,7 @@ plugins {
 }
 
 kotlin {
-    explicitApi = ExplicitApiMode.Strict
+    explicitApi()
 
     targetHierarchy.default()
 
@@ -18,6 +16,9 @@ kotlin {
         binaries.executable()
     }
     jvm()
+
+    macosX64()
+    macosArm64()
 
     listOf(
         iosX64(),

@@ -34,7 +34,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { target ->
         target.binaries.framework {
-            baseName = "stateholder-compose"
+            baseName = "stateholder-voyager"
         }
     }
 
@@ -45,20 +45,7 @@ kotlin {
 
                 implementation(compose.runtime)
                 implementation(libs.kotlin.coroutines)
-                api(libs.essenty.lifecycle)
-            }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.lifecycle)
-                implementation(libs.androidx.lifecycle.compose)
-            }
-        }
-
-        val nativeMain by getting {
-            dependencies {
-                implementation(libs.kotlin.coroutines)
+                implementation(libs.voyager.navigator)
             }
         }
     }
@@ -66,7 +53,7 @@ kotlin {
 
 android {
     compileSdk = libs.versions.sdk.compile.get().toInt()
-    namespace = "com.stateholder.extensions.compose"
+    namespace = "com.stateholder.extensions.voyager"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")

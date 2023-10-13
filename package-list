@@ -7,3 +7,5 @@ module:extensions-android
 dev.stateholder.extensions
 module:extensions-compose
 dev.stateholder.extensions
+module:extensions-voyager
+dev.stateholder.extensions.voyager

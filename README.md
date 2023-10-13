@@ -8,7 +8,6 @@
 [![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-v1.5.3-blue)](https://github.com/JetBrains/compose-multiplatform)
 ![badge-jvm](http://img.shields.io/badge/platform-jvm-6EDB8D.svg?style=flat)
 ![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
-![badge-macos](http://img.shields.io/badge/platform-macos-FDFDFD.svg?style=flat)
 ![badge-js](http://img.shields.io/badge/platform-js-F7DF1E.svg?style=flat)
 
 A simple library for managing state in Kotlin Multiplatform projects, using Kotlin Coroutines

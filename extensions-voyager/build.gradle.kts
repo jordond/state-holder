@@ -25,9 +25,6 @@ kotlin {
     }
     jvm()
 
-    macosX64()
-    macosArm64()
-
     listOf(
         iosX64(),
         iosArm64(),
@@ -44,6 +41,7 @@ kotlin {
                 implementation(project(":core"))
 
                 implementation(compose.runtime)
+                implementation(compose.runtimeSaveable)
                 implementation(libs.kotlin.coroutines)
                 implementation(libs.voyager.navigator)
             }

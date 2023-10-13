@@ -32,7 +32,7 @@ public interface StateOwner<State> {
  * ```
  * class MyModel(
  *    private val container: StateContainer<Boolean>
- * ) : ViewModel(), StateOwner<Boolean> by container.asStateOwner() {
+ * ) : StateOwner<Boolean> by container.asStateOwner() {
  *  // ...
  * }
  * ```

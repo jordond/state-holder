@@ -27,8 +27,6 @@ kotlin {
 
     macosX64()
     macosArm64()
-    watchos()
-    tvos()
 
     listOf(
         iosX64(),
@@ -36,7 +34,7 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { target ->
         target.binaries.framework {
-            baseName = "stateholder-compose"
+            baseName = "stateholder-voyager"
         }
     }
 
@@ -46,34 +44,17 @@ kotlin {
                 implementation(project(":core"))
 
                 implementation(compose.runtime)
+                implementation(compose.runtimeSaveable)
                 implementation(libs.kotlin.coroutines)
-                api(libs.essenty.lifecycle)
+                implementation(libs.voyager.navigator)
             }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.lifecycle)
-                implementation(libs.androidx.lifecycle.compose)
-            }
-        }
-
-        val nativeMain by getting
-        val jvmMain by getting
-        val jsMain by getting
-
-        val nonAndroidMain by creating {
-            dependsOn(commonMain)
-            nativeMain.dependsOn(this)
-            jvmMain.dependsOn(this)
-            jsMain.dependsOn(this)
         }
     }
 }
 
 android {
     compileSdk = libs.versions.sdk.compile.get().toInt()
-    namespace = "com.stateholder.extensions.compose"
+    namespace = "com.stateholder.extensions.voyager"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")

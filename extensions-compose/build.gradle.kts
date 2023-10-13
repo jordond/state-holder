@@ -25,6 +25,11 @@ kotlin {
     }
     jvm()
 
+    macosX64()
+    macosArm64()
+    watchos()
+    tvos()
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -53,13 +58,13 @@ kotlin {
             }
         }
 
-        val iosMain by getting
+        val nativeMain by getting
         val jvmMain by getting
         val jsMain by getting
 
         val nonAndroidMain by creating {
             dependsOn(commonMain)
-            iosMain.dependsOn(this)
+            nativeMain.dependsOn(this)
             jvmMain.dependsOn(this)
             jsMain.dependsOn(this)
         }

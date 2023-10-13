@@ -13,12 +13,15 @@ kotlin {
 
     js(IR) {
         browser()
+        nodejs()
         binaries.executable()
     }
     jvm()
 
     macosX64()
     macosArm64()
+    watchos()
+    tvos()
 
     listOf(
         iosX64(),

@@ -96,16 +96,16 @@ For an Android only project, add the dependency to app level `build.gradle.kts`:
 ```kotlin
 dependencies {
     // The core library
-    implementation("dev.stateholder:core:1.0.0-alpha02")
+    implementation("dev.stateholder:core:1.0.0")
 
     // Optional Compose extensions
-    implementation("dev.stateholder:extensions-compose:1.0.0-alpha02")
+    implementation("dev.stateholder:extensions-compose:1.0.0")
 
     // Optional Voyager extensions
     implementation("dev.stateholder.extensions-voyager:1.0.0")
 
     // Optional Android extensions
-    implementation("dev.stateholder:extensions-android:1.0.0-alpha02")
+    implementation("dev.stateholder:extensions-android:1.0.0")
 }
 ```
 
@@ -113,7 +113,7 @@ dependencies {
 
 ```toml
 [versions]
-stateholder = "1.0.0-alpha02"
+stateholder = "1.0.0"
 
 [libraries]
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }

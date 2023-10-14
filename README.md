@@ -101,6 +101,9 @@ dependencies {
     // Optional Compose extensions
     implementation("dev.stateholder:extensions-compose:1.0.0-alpha02")
 
+    // Optional Voyager extensions
+    implementation("dev.stateholder.extensions-voyager:1.0.0")
+
     // Optional Android extensions
     implementation("dev.stateholder:extensions-android:1.0.0-alpha02")
 }
@@ -116,6 +119,7 @@ stateholder = "1.0.0-alpha02"
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }
 stateholder-extensions-compose = { module = "dev.stateholder:extensions-compose", version.ref = "stateholder" }
 stateholder-extensions-android = { module = "dev.stateholder:extensions-android", version.ref = "stateholder" }
+stateholder-extensions-voyager = { module = "dev.stateholder:extensions-voyager", version.ref = "stateholder" }
 ```
 
 ## Usage

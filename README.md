@@ -1,11 +1,11 @@
 # State Holder
 
 ![Maven Central](https://img.shields.io/maven-central/v/dev.stateholder/core)
-[![Kotlin](https://img.shields.io/badge/kotlin-v1.9.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-v1.9.21-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![Build](https://github.com/jordond/state-holder/actions/workflows/ci.yml/badge.svg)](https://github.com/jordond/state-holder/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/jordond/state-holder)](http://www.apache.org/licenses/LICENSE-2.0)
 
-[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-v1.5.3-blue)](https://github.com/JetBrains/compose-multiplatform)
+[![Compose Multiplatform](https://img.shields.io/badge/Compose%20Multiplatform-v1.5.11-blue)](https://github.com/JetBrains/compose-multiplatform)
 ![badge-jvm](http://img.shields.io/badge/platform-jvm-6EDB8D.svg?style=flat)
 ![badge-apple](http://img.shields.io/badge/platform-ios%2Fmacos%2Fwatchos%2Ftvos-CDCDCD.svg?style=flat)
 ![badge-js](http://img.shields.io/badge/platform-js-F7DF1E.svg?style=flat)
@@ -64,16 +64,16 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("dev.stateholder:core:1.0.0")
+                implementation("dev.stateholder:core:1.0.1")
 
                 // Optional Compose extensions
-                implementation("dev.stateholder.extensions-compose:1.0.0")
+                implementation("dev.stateholder.extensions-compose:1.0.1")
 
                 // Optional Voyager extensions
-                implementation("dev.stateholder.extensions-voyager:1.0.0")
+                implementation("dev.stateholder.extensions-voyager:1.0.1")
 
                 // Optional Android-only extensions (not KMP friendly)
-                implementation("dev.stateholder.extensions-android:1.0.0")
+                implementation("dev.stateholder.extensions-android:1.0.1")
             }
         }
     }
@@ -96,16 +96,16 @@ For an Android only project, add the dependency to app level `build.gradle.kts`:
 ```kotlin
 dependencies {
     // The core library
-    implementation("dev.stateholder:core:1.0.0")
+    implementation("dev.stateholder:core:1.0.1")
 
     // Optional Compose extensions
-    implementation("dev.stateholder:extensions-compose:1.0.0")
+    implementation("dev.stateholder:extensions-compose:1.0.1")
 
     // Optional Voyager extensions
-    implementation("dev.stateholder.extensions-voyager:1.0.0")
+    implementation("dev.stateholder.extensions-voyager:1.0.1")
 
     // Optional Android extensions
-    implementation("dev.stateholder:extensions-android:1.0.0")
+    implementation("dev.stateholder:extensions-android:1.0.1")
 }
 ```
 
@@ -113,7 +113,7 @@ dependencies {
 
 ```toml
 [versions]
-stateholder = "1.0.0"
+stateholder = "1.0.1"
 
 [libraries]
 stateholder-core = { module = "dev.stateholder:core", version.ref = "stateholder" }

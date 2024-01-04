@@ -9,7 +9,7 @@ plugins {
 kotlin {
     explicitApi()
 
-    targetHierarchy.default()
+    applyDefaultHierarchyTemplate()
 
     js(IR) {
         browser()

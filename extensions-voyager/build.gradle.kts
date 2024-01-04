@@ -47,6 +47,7 @@ kotlin {
                 implementation(compose.runtimeSaveable)
                 implementation(libs.kotlin.coroutines)
                 implementation(libs.voyager.navigator)
+                implementation(libs.voyager.screenModel)
             }
         }
     }

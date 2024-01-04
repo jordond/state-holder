@@ -1,7 +1,7 @@
 package dev.stateholder.extensions.voyager
 
 import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.coroutineScope
+import cafe.adriel.voyager.core.model.screenModelScope
 import dev.stateholder.StateHolder
 import dev.stateholder.StateOwner
 import dev.stateholder.StateProvider
@@ -23,7 +23,7 @@ public abstract class StateScreenModel<State>(
     override val state: StateFlow<State> = stateHolder.state
 
     public fun <T> Flow<T>.collectToState(
-        scope: CoroutineScope = coroutineScope,
+        scope: CoroutineScope = screenModelScope,
         block: suspend (state: State, value: T) -> State,
     ): Job {
         return stateHolder.addSource(this, scope, block)

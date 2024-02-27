@@ -28,4 +28,8 @@ public abstract class StateScreenModel<State>(
     ): Job {
         return stateHolder.addSource(this, scope, block)
     }
+
+    protected fun updateState(block: (State) -> State) {
+        stateHolder.update(block)
+    }
 }

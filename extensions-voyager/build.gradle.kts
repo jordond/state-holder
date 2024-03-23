@@ -1,6 +1,4 @@
-@file:Suppress("UNUSED_VARIABLE", "OPT_IN_USAGE")
-
-import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
+@file:Suppress("OPT_IN_USAGE")
 
 plugins {
     alias(libs.plugins.multiplatform)
@@ -12,14 +10,17 @@ plugins {
 
 kotlin {
     explicitApi()
-
-    targetHierarchy.default()
+    applyDefaultHierarchyTemplate()
 
     androidTarget {
         publishLibraryVariants("release")
     }
 
     js(IR) {
+        browser()
+        binaries.executable()
+    }
+    wasmJs {
         browser()
         binaries.executable()
     }

@@ -16,12 +16,14 @@ kotlin {
         nodejs()
         binaries.executable()
     }
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
     jvm()
 
     macosX64()
     macosArm64()
-    watchos()
-    tvos()
 
     listOf(
         iosX64(),

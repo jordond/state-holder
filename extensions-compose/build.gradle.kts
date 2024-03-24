@@ -1,6 +1,4 @@
-@file:Suppress("UNUSED_VARIABLE", "OPT_IN_USAGE")
-
-import org.jetbrains.kotlin.gradle.dsl.ExplicitApiMode
+@file:Suppress("OPT_IN_USAGE")
 
 plugins {
     alias(libs.plugins.multiplatform)
@@ -23,12 +21,14 @@ kotlin {
         browser()
         binaries.executable()
     }
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
     jvm()
 
     macosX64()
     macosArm64()
-    watchos()
-    tvos()
 
     listOf(
         iosX64(),
@@ -61,12 +61,14 @@ kotlin {
         val nativeMain by getting
         val jvmMain by getting
         val jsMain by getting
+        val wasmJsMain by getting
 
         val nonAndroidMain by creating {
             dependsOn(commonMain)
             nativeMain.dependsOn(this)
             jvmMain.dependsOn(this)
             jsMain.dependsOn(this)
+            wasmJsMain.dependsOn(this)
         }
     }
 }

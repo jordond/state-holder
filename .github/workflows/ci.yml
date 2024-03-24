@@ -45,7 +45,7 @@ jobs:
           arguments: apiCheck --scan
 
       - name: Lint
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: lint --scan
 
@@ -82,6 +82,6 @@ jobs:
 
       - name: Build ${{ matrix.config.target }} targets
         continue-on-error: ${{ matrix.config.continueOnError }}
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: ${{ matrix.config.tasks }} --scan

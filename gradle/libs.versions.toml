@@ -17,7 +17,7 @@ espresso-core = "3.5.1"
 binaryCompatibility = "0.14.0"
 dokka = "1.9.20"
 publish = "0.28.0"
-voyager = "1.1.0-beta01"
+voyager = "1.1.0-beta02"
 
 [libraries]
 androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }

@@ -3,7 +3,7 @@ sdk-target = "34"
 sdk-compile = "34"
 sdk-min = "21"
 agp = "8.4.1"
-kotlin = "1.9.24"
+kotlin = "2.0.0"
 kotlin-coroutines = "1.8.1"
 versions = "0.51.0"
 compose-multiplatform = "1.6.11"
@@ -36,6 +36,7 @@ voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", vers
 [plugins]
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

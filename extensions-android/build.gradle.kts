@@ -38,7 +38,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(project(":core"))
+    implementation(projects.core)
 
     implementation(libs.bundles.androidx)
     testImplementation(libs.junit)

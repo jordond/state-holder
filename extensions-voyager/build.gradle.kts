@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.multiplatform)
     alias(libs.plugins.compose)
+    alias(libs.plugins.compose.compiler)
     alias(libs.plugins.android.library)
     alias(libs.plugins.dokka)
     alias(libs.plugins.publish)
@@ -42,7 +43,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":core"))
+                implementation(projects.core)
 
                 implementation(compose.runtime)
                 implementation(compose.runtimeSaveable)

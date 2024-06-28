@@ -29,6 +29,11 @@ public abstract class StateScreenModel<State>(
         return stateHolder.addSource(this, scope, block)
     }
 
+    public fun <T> StateOwner<T>.collectToState(
+        scope: CoroutineScope = screenModelScope,
+        block: suspend (state: State, value: T) -> State,
+    ): Job = state.collectToState(scope, block)
+
     protected fun updateState(block: (State) -> State) {
         stateHolder.update(block)
     }

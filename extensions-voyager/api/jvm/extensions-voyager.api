@@ -3,7 +3,9 @@ public abstract class dev/stateholder/extensions/voyager/StateScreenModel : cafe
 	public fun <init> (Ldev/stateholder/StateHolder;)V
 	public fun <init> (Ldev/stateholder/StateProvider;)V
 	public fun <init> (Ljava/lang/Object;)V
+	public final fun collectToState (Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	public final fun collectToState (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public static synthetic fun collectToState$default (Ldev/stateholder/extensions/voyager/StateScreenModel;Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 	public static synthetic fun collectToState$default (Ldev/stateholder/extensions/voyager/StateScreenModel;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 	public fun getState ()Lkotlinx/coroutines/flow/StateFlow;
 	protected final fun getStateHolder ()Ldev/stateholder/StateHolder;

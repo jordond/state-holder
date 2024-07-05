@@ -1,11 +1,11 @@
 package dev.stateholder
 
 import dev.stateholder.internal.DefaultStateHolder
-import kotlin.reflect.KProperty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
+import kotlin.reflect.KProperty
 
 /**
  * A container for managing state.
@@ -43,6 +43,46 @@ public interface StateHolder<State> {
      */
     public fun <T> addSource(
         flow: Flow<T>,
+        scope: CoroutineScope,
+        block: suspend (State, T) -> State,
+    ): Job
+
+    /**
+     * Combine the state with another [StateHolder].
+     *
+     * This is useful when you need to update the [state] based off of another [StateHolder]. The
+     * [holder] will be observed and [block] will be invoked in order to map the [T] value from
+     * [holder] to the [State] value.
+     *
+     * The observing can be stopped by cancelling the returned [Job].
+     *
+     * @param[T] The type of the value from the [holder].
+     * @param[holder] The [StateHolder] to observe and update state with.
+     * @param[scope] The scope to use for observing the [holder].
+     * @return The [Job] of the observation.
+     */
+    public fun <T> combine(
+        holder: StateHolder<T>,
+        scope: CoroutineScope,
+        block: suspend (State, T) -> State,
+    ): Job
+
+    /**
+     * Combine the state with another [StateOwner].
+     *
+     * This is useful when you need to update the [state] based off of another [StateOwner]. The
+     * [owner] will be observed and [block] will be invoked in order to map the [T] value from
+     * [owner] to the [State] value.
+     *
+     * The observing can be stopped by cancelling the returned [Job].
+     *
+     * @param[T] The type of the value from the [owner].
+     * @param[owner] The [StateOwner] to observe and update state with.
+     * @param[scope] The scope to use for observing the [owner].
+     * @return The [Job] of the observation.
+     */
+    public fun <T> combine(
+        owner: StateOwner<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,
     ): Job

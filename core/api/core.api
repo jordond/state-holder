@@ -1,6 +1,8 @@
 public abstract interface class dev/stateholder/StateHolder {
 	public static final field Companion Ldev/stateholder/StateHolder$Companion;
 	public abstract fun addSource (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun combine (Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun combine (Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
 	public abstract fun getValue (Ldev/stateholder/StateOwner;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
 	public abstract fun update (Lkotlin/jvm/functions/Function1;)V

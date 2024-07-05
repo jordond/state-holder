@@ -1,6 +1,7 @@
 package dev.stateholder.internal
 
 import dev.stateholder.StateHolder
+import dev.stateholder.StateOwner
 import dev.stateholder.StateProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -39,6 +40,24 @@ internal class DefaultStateHolder<State>(
             _state.update { state -> block(state, value) }
         }
     }
+
+    /**
+     * @see StateHolder.combine
+     */
+    override fun <T> combine(
+        holder: StateHolder<T>,
+        scope: CoroutineScope,
+        block: suspend (State, T) -> State,
+    ): Job = addSource(holder.state, scope, block)
+
+    /**
+     * @see StateHolder.combine
+     */
+    override fun <T> combine(
+        owner: StateOwner<T>,
+        scope: CoroutineScope,
+        block: suspend (State, T) -> State,
+    ): Job = addSource(owner.state, scope, block)
 
     /**
      * Update the state in the container.

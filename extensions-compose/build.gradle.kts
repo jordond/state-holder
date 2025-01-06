@@ -47,7 +47,7 @@ kotlin {
                 implementation(projects.core)
 
                 implementation(compose.runtime)
-                implementation(libs.kotlin.coroutines)
+                implementation(libs.kotlinx.coroutines.core)
                 api(libs.essenty.lifecycle)
             }
         }
@@ -75,15 +75,15 @@ kotlin {
 }
 
 android {
-    compileSdk = libs.versions.sdk.compile.get().toInt()
-    namespace = "com.stateholder.extensions.compose"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = "dev.jordond.stateholder.extensions.compose"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk = libs.versions.sdk.min.get().toInt()
+        minSdk =libs.versions.android.minSdk.get().toInt()
     }
 
     buildTypes {

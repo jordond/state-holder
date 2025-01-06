@@ -38,3 +38,4 @@ include(
     ":extensions-voyager",
     ":extensions-android",
 )
+include(":demo")

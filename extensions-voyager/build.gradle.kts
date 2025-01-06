@@ -47,7 +47,7 @@ kotlin {
 
                 implementation(compose.runtime)
                 implementation(compose.runtimeSaveable)
-                implementation(libs.kotlin.coroutines)
+                implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.voyager.navigator)
                 implementation(libs.voyager.screenModel)
             }
@@ -56,15 +56,15 @@ kotlin {
 }
 
 android {
-    compileSdk = libs.versions.sdk.compile.get().toInt()
-    namespace = "com.stateholder.extensions.voyager"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    namespace = "dev.jordond.stateholder.extensions.voyager"
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk = libs.versions.sdk.min.get().toInt()
+        minSdk =libs.versions.android.minSdk.get().toInt()
     }
 
     buildTypes {

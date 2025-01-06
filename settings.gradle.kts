@@ -35,6 +35,7 @@ rootProject.name = "StateHolder"
 include(
     ":core",
     ":extensions-compose",
+    ":extensions-viewmodel",
     ":extensions-voyager",
     ":extensions-android",
 )

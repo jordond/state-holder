@@ -1,7 +1,7 @@
-package dev.stateholder.extensions.voyager
+package dev.stateholder.extensions.viewmodel
 
-import cafe.adriel.voyager.core.model.ScreenModel
-import cafe.adriel.voyager.core.model.screenModelScope
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dev.stateholder.StateHolder
 import dev.stateholder.StateOwner
 import dev.stateholder.StateProvider
@@ -12,9 +12,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 
 @Suppress("MemberVisibilityCanBePrivate")
-public abstract class StateScreenModel<State>(
+public abstract class StateViewModel<State>(
     protected val stateHolder: StateHolder<State>,
-) : ScreenModel, StateOwner<State> {
+) : ViewModel(), StateOwner<State> {
 
     public constructor(stateProvider: StateProvider<State>) : this(stateContainer(stateProvider))
 
@@ -23,14 +23,14 @@ public abstract class StateScreenModel<State>(
     override val state: StateFlow<State> = stateHolder.state
 
     protected fun <T> Flow<T>.mergeState(
-        scope: CoroutineScope = screenModelScope,
+        scope: CoroutineScope = viewModelScope,
         block: suspend (state: State, value: T) -> State,
     ): Job {
         return stateHolder.addSource(this, scope, block)
     }
 
     protected fun <T> StateOwner<T>.mergeState(
-        scope: CoroutineScope = screenModelScope,
+        scope: CoroutineScope = viewModelScope,
         block: suspend (state: State, value: T) -> State,
     ): Job = state.mergeState(scope, block)
 

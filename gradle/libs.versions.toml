@@ -1,13 +1,17 @@
 [versions]
-sdk-target = "34"
-sdk-compile = "34"
-sdk-min = "21"
+app-name = "dev.jordond.stateholder"
+app-version = "1.0.0"
+app-code = "100"
+android-compileSdk = "35"
+android-targetSdk = "35"
+android-minSdk = "26"
 agp = "8.7.3"
 kotlin = "2.1.0"
-kotlin-coroutines = "1.10.1"
+kotlinx-coroutines = "1.10.1"
 versions = "0.51.0"
-compose-multiplatform = "1.7.0"
+compose-multiplatform = "1.7.3"
 androidx-core-ktx = "1.15.0"
+androidx-activity = "1.9.3"
 androidx-appcompat = "1.7.0"
 androidx-lifecycle = "2.8.7"
 essenty = "2.4.0"
@@ -17,6 +21,7 @@ espresso-core = "3.6.1"
 binaryCompatibility = "0.17.0"
 dokka = "2.0.0"
 publish = "0.30.0"
+kermit = "2.0.5"
 voyager = "1.1.0-beta03"
 
 [libraries]
@@ -24,11 +29,17 @@ androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "and
 androidx-lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "androidx-activity" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
-kotlin-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 essenty-lifecycle = { group = "com.arkivanov.essenty", name = "lifecycle", version.ref = "essenty" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }

@@ -13,6 +13,12 @@ plugins {
     alias(libs.plugins.binaryCompatibility)
 }
 
+apiValidation {
+    ignoredProjects.addAll(
+        listOf("demo"),
+    )
+}
+
 tasks.withType<DokkaMultiModuleTask>().configureEach {
     outputDirectory.set(rootDir.resolve("dokka"))
 }

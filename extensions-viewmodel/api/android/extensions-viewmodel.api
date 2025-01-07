@@ -1,4 +1,4 @@
-public abstract class dev/stateholder/extensions/voyager/StateScreenModel : cafe/adriel/voyager/core/model/ScreenModel, dev/stateholder/StateOwner {
+public abstract class dev/stateholder/extensions/viewmodel/StateViewModel : androidx/lifecycle/ViewModel, dev/stateholder/StateOwner {
 	public static final field $stable I
 	public fun <init> (Ldev/stateholder/StateHolder;)V
 	public fun <init> (Ldev/stateholder/StateProvider;)V
@@ -7,13 +7,12 @@ public abstract class dev/stateholder/extensions/voyager/StateScreenModel : cafe
 	protected final fun getStateHolder ()Ldev/stateholder/StateHolder;
 	protected final fun mergeState (Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	protected final fun mergeState (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public static synthetic fun mergeState$default (Ldev/stateholder/extensions/voyager/StateScreenModel;Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
-	public static synthetic fun mergeState$default (Ldev/stateholder/extensions/voyager/StateScreenModel;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
-	public fun onDispose ()V
+	public static synthetic fun mergeState$default (Ldev/stateholder/extensions/viewmodel/StateViewModel;Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+	public static synthetic fun mergeState$default (Ldev/stateholder/extensions/viewmodel/StateViewModel;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 	protected final fun updateState (Lkotlin/jvm/functions/Function1;)V
 }
 
-public abstract class dev/stateholder/extensions/voyager/UiStateScreenModel : dev/stateholder/extensions/voyager/StateScreenModel, dev/stateholder/EventHolder {
+public abstract class dev/stateholder/extensions/viewmodel/UiStateViewModel : dev/stateholder/extensions/viewmodel/StateViewModel, dev/stateholder/EventHolder {
 	public static final field $stable I
 	public fun <init> (Ldev/stateholder/StateHolder;)V
 	public fun <init> (Ldev/stateholder/StateProvider;)V

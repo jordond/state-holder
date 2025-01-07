@@ -2,13 +2,23 @@ package dev.stateholder.extensions
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import com.arkivanov.essenty.lifecycle.Lifecycle
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.stateholder.StateOwner
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
 @Composable
-public expect fun <T> StateOwner<T>.collectAsState(
+public fun <T> StateOwner<T>.collectAsState(
+    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
     context: CoroutineContext = EmptyCoroutineContext,
-): State<T>
+): State<T> {
+    return state.collectAsStateWithLifecycle(
+        lifecycleOwner = lifecycleOwner,
+        minActiveState = minActiveState,
+        context = context,
+    )
+}

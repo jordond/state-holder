@@ -46,7 +46,7 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.runtimeSaveable)
                 implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.androidx.viewmodel)
+                implementation(libs.androidx.lifecycle.viewmodel)
             }
         }
 

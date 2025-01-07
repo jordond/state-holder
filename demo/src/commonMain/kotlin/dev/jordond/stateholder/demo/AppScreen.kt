@@ -28,7 +28,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.model.rememberScreenModel
 import cafe.adriel.voyager.core.screen.Screen
-import dev.jordond.stateholder.demo.AppAction.*
+import dev.jordond.stateholder.demo.AppAction.Decrement
+import dev.jordond.stateholder.demo.AppAction.Increment
+import dev.jordond.stateholder.demo.AppAction.SetCount
+import dev.jordond.stateholder.demo.AppAction.TriggerEvent
 import dev.jordond.stateholder.demo.AppModel.Event
 import dev.stateholder.dispatcher.Dispatcher
 import dev.stateholder.dispatcher.rememberDispatcher
@@ -65,7 +68,7 @@ class AppScreen : Screen {
             AppContent(
                 count = state.count,
                 dispatcher = rememberDispatcher(debounce = 100L) { action ->
-                    when(action) {
+                    when (action) {
                         is Decrement -> model.decrement()
                         is Increment -> model.increment()
                         is SetCount -> model.setCount(action.count)

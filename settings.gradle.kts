@@ -34,6 +34,8 @@ rootProject.name = "StateHolder"
 
 include(
     ":core",
+    ":dispatcher",
+    ":dispatcher-compose",
     ":extensions-compose",
     ":extensions-viewmodel",
     ":extensions-voyager",

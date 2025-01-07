@@ -9,11 +9,14 @@ agp = "8.7.3"
 kotlin = "2.1.0"
 kotlinx-collections = "0.3.8"
 kotlinx-coroutines = "1.10.1"
+kotlinx-datetime = "0.6.1"
 versions = "0.51.0"
 compose-multiplatform = "1.7.3"
 androidx-core-ktx = "1.15.0"
 androidx-activity = "1.9.3"
 androidx-appcompat = "1.7.0"
+# This is the latest version of the androidx-lifecycle library that is compatible with compose-multiplatform
+# noinspection GradleDependency
 androidx-lifecycle = "2.8.4"
 junit = "4.13.2"
 binaryCompatibility = "0.17.0"
@@ -36,6 +39,7 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }

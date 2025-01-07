@@ -47,6 +47,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.core)
+                implementation(projects.dispatcher)
+                implementation(projects.dispatcherCompose)
                 implementation(projects.extensionsCompose)
                 implementation(projects.extensionsVoyager)
 

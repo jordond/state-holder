@@ -11,6 +11,10 @@ class AppModel : UiStateScreenModel<AppModel.State, AppModel.Event>(State()) {
         updateState { it.copy(count = it.count - 1) }
     }
 
+    fun setCount(count: Int) {
+        updateState { it.copy(count = count) }
+    }
+
     fun triggerEvent() {
         emit(Event.Toast)
     }

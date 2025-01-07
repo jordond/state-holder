@@ -45,6 +45,7 @@ kotlin {
                 implementation(projects.core)
 
                 implementation(compose.runtime)
+                implementation(libs.kotlinx.collections)
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.androidx.lifecycle.runtime.compose)
             }

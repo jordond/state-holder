@@ -21,6 +21,7 @@ kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
+        nodejs()
         binaries.executable()
     }
 

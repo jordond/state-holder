@@ -55,7 +55,7 @@ jobs:
           { target: "macos-x64", os: "macos-latest", tasks: "macosX64Test" },
           { target: "js-node", os: "ubuntu-latest", tasks: "jsNodeTest" },
           { target: "wasm-node", os: "ubuntu-latest", tasks: "wasmJsNodeTest" },
-          { target: "package", os: "ubuntu-latest", tasks: ":demo:composeApp:packageDistributionForCurrentOS" }
+          { target: "package", os: "ubuntu-latest", tasks: ":demo:packageDistributionForCurrentOS" }
         ]
     runs-on: ${{ matrix.config.os }}
     name: Test ${{ matrix.config.target }}

@@ -1,7 +1,7 @@
 package dev.stateholder
 
 /**
- * A provider of a state for a [StateHolder].
+ * A provider of a state for a [StateContainer].
  *
  * Sometimes we can have a simple state object that does not rely on outside sources. In that case
  * you can just use [provideState], like so:
@@ -28,7 +28,7 @@ package dev.stateholder
  * }
  * ```
  *
- * This provides a testable way to provide state for a [StateHolder].
+ * This provides a testable way to provide state for a [StateContainer].
  */
 public fun interface StateProvider<State> {
 

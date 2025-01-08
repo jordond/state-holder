@@ -1,5 +1,5 @@
 public final class dev/stateholder/extensions/CollectAsStateKt {
-	public static final fun collectAsState (Ldev/stateholder/StateOwner;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Landroidx/compose/runtime/Composer;II)Landroidx/compose/runtime/State;
+	public static final fun collectAsState (Ldev/stateholder/StateHolder;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Landroidx/compose/runtime/Composer;II)Landroidx/compose/runtime/State;
 }
 
 public final class dev/stateholder/extensions/HandleEventsKt {

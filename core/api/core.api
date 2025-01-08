@@ -1,8 +1,8 @@
 public final class dev/stateholder/CollectKt {
-	public static final fun collectState (Ldev/stateholder/StateOwner;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/Job;
-	public static final fun collectState (Ldev/stateholder/StateOwner;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/Job;
-	public static synthetic fun collectState$default (Ldev/stateholder/StateOwner;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
-	public static synthetic fun collectState$default (Ldev/stateholder/StateOwner;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+	public static final fun collectState (Ldev/stateholder/StateHolder;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/Job;
+	public static final fun collectState (Ldev/stateholder/StateHolder;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/Job;
+	public static synthetic fun collectState$default (Ldev/stateholder/StateHolder;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
+	public static synthetic fun collectState$default (Ldev/stateholder/StateHolder;Landroidx/lifecycle/LifecycleOwner;Lkotlin/jvm/functions/Function1;Landroidx/lifecycle/Lifecycle$State;Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlinx/coroutines/Job;
 }
 
 public abstract interface class dev/stateholder/EventHolder {
@@ -10,39 +10,39 @@ public abstract interface class dev/stateholder/EventHolder {
 	public abstract fun handle (Ljava/lang/Object;)V
 }
 
+public abstract interface class dev/stateholder/StateContainer {
+	public static final field Companion Ldev/stateholder/StateContainer$Companion;
+	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun getValue (Ldev/stateholder/StateHolder;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun merge (Ldev/stateholder/StateContainer;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun merge (Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun merge (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun update (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class dev/stateholder/StateContainer$Companion {
+}
+
+public final class dev/stateholder/StateContainer$DefaultImpls {
+	public static fun getValue (Ldev/stateholder/StateContainer;Ldev/stateholder/StateHolder;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
+}
+
+public final class dev/stateholder/StateContainerKt {
+	public static final fun mergeWithState (Lkotlinx/coroutines/flow/Flow;Ldev/stateholder/StateContainer;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public static final fun stateContainer (Ldev/stateholder/StateProvider;)Ldev/stateholder/StateContainer;
+	public static final fun stateContainer (Ljava/lang/Object;)Ldev/stateholder/StateContainer;
+}
+
 public abstract interface class dev/stateholder/StateHolder {
 	public static final field Companion Ldev/stateholder/StateHolder$Companion;
-	public abstract fun addSource (Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public abstract fun addSource (Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public abstract fun addSource (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
-	public abstract fun getValue (Ldev/stateholder/StateOwner;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
-	public abstract fun update (Lkotlin/jvm/functions/Function1;)V
 }
 
 public final class dev/stateholder/StateHolder$Companion {
 }
 
-public final class dev/stateholder/StateHolder$DefaultImpls {
-	public static fun getValue (Ldev/stateholder/StateHolder;Ldev/stateholder/StateOwner;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
-}
-
 public final class dev/stateholder/StateHolderKt {
-	public static final fun combineWithState (Lkotlinx/coroutines/flow/Flow;Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public static final fun stateContainer (Ldev/stateholder/StateProvider;)Ldev/stateholder/StateHolder;
-	public static final fun stateContainer (Ljava/lang/Object;)Ldev/stateholder/StateHolder;
-}
-
-public abstract interface class dev/stateholder/StateOwner {
-	public static final field Companion Ldev/stateholder/StateOwner$Companion;
-	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
-}
-
-public final class dev/stateholder/StateOwner$Companion {
-}
-
-public final class dev/stateholder/StateOwnerKt {
-	public static final fun asStateOwner (Ldev/stateholder/StateHolder;)Ldev/stateholder/StateOwner;
+	public static final fun asStateHolder (Ldev/stateholder/StateContainer;)Ldev/stateholder/StateHolder;
 }
 
 public abstract interface class dev/stateholder/StateProvider {

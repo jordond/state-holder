@@ -1,11 +1,20 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-
+$dokka.location:////PointingToDeclaration/demo/[root]/index.html
+$dokka.location://main/#/PointingToDeclaration/demo/[root]/main.html
 module:core
 dev.stateholder
+module:demo
+dev.jordond.stateholder.demo
+module:dispatcher
+dev.stateholder.dispatcher
+module:dispatcher-compose
+dev.stateholder.dispatcher
 module:extensions-android
 dev.stateholder.extensions
 module:extensions-compose
 dev.stateholder.extensions
+module:extensions-viewmodel
+dev.stateholder.extensions.viewmodel
 module:extensions-voyager
 dev.stateholder.extensions.voyager

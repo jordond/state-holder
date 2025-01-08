@@ -117,7 +117,7 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "dev.jordond.state.MainKt"
+        mainClass = "MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

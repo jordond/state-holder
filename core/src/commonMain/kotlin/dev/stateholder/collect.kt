@@ -54,8 +54,8 @@ public fun <State, T> StateOwner<State>.collectState(
  */
 private fun <T> Flow<T>.lifecycleCollect(
     lifecycleOwner: LifecycleOwner,
-    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
-    context: CoroutineContext = EmptyCoroutineContext,
+    minActiveState: Lifecycle.State,
+    context: CoroutineContext,
     block: (T) -> Unit,
 ): Job = lifecycleOwner.lifecycleScope.launch {
     lifecycleOwner.repeatOnLifecycle(minActiveState) {

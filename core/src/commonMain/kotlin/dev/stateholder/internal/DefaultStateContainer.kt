@@ -1,38 +1,37 @@
 package dev.stateholder.internal
 
+import dev.stateholder.StateContainer
 import dev.stateholder.StateHolder
-import dev.stateholder.StateOwner
 import dev.stateholder.StateProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 /**
- * Default implementation of [StateHolder].
+ * Default implementation of [StateContainer].
  *
  * @param[State] The type of the state.
  * @param[initialStateProvider] The provider of the initial state.
  */
-internal class DefaultStateHolder<State>(
+internal class DefaultStateContainer<State>(
     initialStateProvider: StateProvider<State>,
-) : StateHolder<State> {
+) : StateContainer<State> {
 
     private val _state = MutableStateFlow(initialStateProvider.provide())
 
     /**
-     * @see StateHolder.state
+     * @see StateContainer.state
      */
     override val state = _state.asStateFlow()
 
     /**
-     * @see StateHolder.addSource
+     * @see StateContainer.merge
      */
-    override fun <T> addSource(
+    override fun <T> merge(
         flow: Flow<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,
@@ -43,22 +42,22 @@ internal class DefaultStateHolder<State>(
     }
 
     /**
-     * @see StateHolder.addSource
+     * @see StateContainer.merge
      */
-    override fun <T> addSource(
+    override fun <T> merge(
+        container: StateContainer<T>,
+        scope: CoroutineScope,
+        block: suspend (State, T) -> State,
+    ): Job = merge(container.state, scope, block)
+
+    /**
+     * @see StateContainer.merge
+     */
+    override fun <T> merge(
         holder: StateHolder<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,
-    ): Job = addSource(holder.state, scope, block)
-
-    /**
-     * @see StateHolder.addSource
-     */
-    override fun <T> addSource(
-        owner: StateOwner<T>,
-        scope: CoroutineScope,
-        block: suspend (State, T) -> State,
-    ): Job = addSource(owner.state, scope, block)
+    ): Job = merge(holder.state, scope, block)
 
     /**
      * Update the state in the container.
@@ -66,7 +65,7 @@ internal class DefaultStateHolder<State>(
      * This call must be wrapped in [MutableStateFlow.update] to preserve thread safety.
      * Without it [block] could be called with stale state.
      *
-     * @see StateHolder.update
+     * @see StateContainer.update
      */
     override fun update(block: (State) -> State) {
         _state.update { currentState ->

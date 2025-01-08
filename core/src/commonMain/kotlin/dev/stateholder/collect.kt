@@ -21,7 +21,7 @@ import kotlin.coroutines.EmptyCoroutineContext
  * @param[context] The [CoroutineContext] to launch the coroutine.
  * @param[block] Lambda to handle the state emissions.
  */
-public fun <State> StateOwner<State>.collectState(
+public fun <State> StateHolder<State>.collectState(
     lifecycleOwner: LifecycleOwner,
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
     context: CoroutineContext = EmptyCoroutineContext,
@@ -39,7 +39,7 @@ public fun <State> StateOwner<State>.collectState(
  * @param[context] The [CoroutineContext] to launch the coroutine.
  * @param[block] Lambda to handle the selected property emissions.
  */
-public fun <State, T> StateOwner<State>.collectState(
+public fun <State, T> StateHolder<State>.collectState(
     lifecycleOwner: LifecycleOwner,
     selector: (State) -> T,
     minActiveState: Lifecycle.State = Lifecycle.State.STARTED,

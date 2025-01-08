@@ -22,17 +22,17 @@ public abstract class StateScreenModel<State>(
 
     override val state: StateFlow<State> = stateHolder.state
 
-    public fun <T> Flow<T>.collectToState(
+    protected fun <T> Flow<T>.mergeState(
         scope: CoroutineScope = screenModelScope,
         block: suspend (state: State, value: T) -> State,
     ): Job {
         return stateHolder.addSource(this, scope, block)
     }
 
-    public fun <T> StateOwner<T>.collectToState(
+    protected fun <T> StateOwner<T>.mergeState(
         scope: CoroutineScope = screenModelScope,
         block: suspend (state: State, value: T) -> State,
-    ): Job = state.collectToState(scope, block)
+    ): Job = state.mergeState(scope, block)
 
     protected fun updateState(block: (State) -> State) {
         stateHolder.update(block)

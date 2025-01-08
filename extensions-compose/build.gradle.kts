@@ -1,4 +1,4 @@
-@file:Suppress("OPT_IN_USAGE")
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.multiplatform)
@@ -14,22 +14,20 @@ kotlin {
 
     applyDefaultHierarchyTemplate()
 
-    androidTarget {
-        publishLibraryVariants("release")
-    }
+    androidTarget()
 
     js(IR) {
         browser()
         binaries.executable()
     }
+
+    @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
         binaries.executable()
     }
-    jvm()
 
-    macosX64()
-    macosArm64()
+    jvm("desktop")
 
     listOf(
         iosX64(),
@@ -47,29 +45,10 @@ kotlin {
                 implementation(projects.core)
 
                 implementation(compose.runtime)
+                implementation(libs.kotlinx.collections)
                 implementation(libs.kotlinx.coroutines.core)
-                api(libs.essenty.lifecycle)
+                implementation(libs.androidx.lifecycle.runtime.compose)
             }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                implementation(libs.androidx.lifecycle)
-                implementation(libs.androidx.lifecycle.compose)
-            }
-        }
-
-        val nativeMain by getting
-        val jvmMain by getting
-        val jsMain by getting
-        val wasmJsMain by getting
-
-        val nonAndroidMain by creating {
-            dependsOn(commonMain)
-            nativeMain.dependsOn(this)
-            jvmMain.dependsOn(this)
-            jsMain.dependsOn(this)
-            wasmJsMain.dependsOn(this)
         }
     }
 }
@@ -83,7 +62,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk =libs.versions.android.minSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
     }
 
     buildTypes {

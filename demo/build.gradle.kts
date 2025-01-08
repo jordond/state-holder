@@ -37,7 +37,6 @@ kotlin {
         all {
             languageSettings {
                 optIn("androidx.compose.material3.ExperimentalMaterial3Api")
-                optIn("androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi")
                 optIn("androidx.compose.foundation.layout.ExperimentalLayoutApi")
                 optIn("androidx.compose.foundation.ExperimentalFoundationApi")
                 optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
@@ -47,6 +46,8 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.core)
+                implementation(projects.dispatcher)
+                implementation(projects.dispatcherCompose)
                 implementation(projects.extensionsCompose)
                 implementation(projects.extensionsVoyager)
 
@@ -116,7 +117,7 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "dev.jordond.state.MainKt"
+        mainClass = "MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

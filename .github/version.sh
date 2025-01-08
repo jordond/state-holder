@@ -27,7 +27,7 @@ fi
 # Update Kotlin badge in README.md
 LIBS_KOTLIN_VERSION=$(grep "kotlin = " "$VERSION_FILE" | cut -d= -f2 | tr -d ' "')
 if [ -z "$LIBS_KOTLIN_VERSION" ]; then
-  echo "Unable to find Kotlinversion in '$VERSION_FILE'"
+  echo "Unable to find Kotlin version in '$VERSION_FILE'"
 else
   echo "Updating Kotlin version: '$LIBS_KOTLIN_VERSION'"
   sed -i '' -E "s/kotlin-v$SEMVER_REG/kotlin-v$LIBS_KOTLIN_VERSION/" "$README_FILE"

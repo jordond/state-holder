@@ -1,9 +1,8 @@
 package dev.jordond.stateholder.demo
 
-import dev.stateholder.extensions.voyager.StateScreenModel
+import dev.stateholder.extensions.voyager.UiStateScreenModel
 
-
-class AppModel : StateScreenModel<AppModel.State>(State()) {
+class AppModel : UiStateScreenModel<AppModel.State, AppModel.Event>(State()) {
     fun increment() {
         updateState { it.copy(count = it.count + 1) }
     }
@@ -12,8 +11,12 @@ class AppModel : StateScreenModel<AppModel.State>(State()) {
         updateState { it.copy(count = it.count - 1) }
     }
 
-    fun triggerEvent() {
+    fun setCount(count: Int) {
+        updateState { it.copy(count = count) }
+    }
 
+    fun triggerEvent() {
+        emit(Event.Toast)
     }
 
     data class State(

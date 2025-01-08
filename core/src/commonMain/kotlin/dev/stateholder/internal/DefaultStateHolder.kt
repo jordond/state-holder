@@ -8,6 +8,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -34,7 +35,7 @@ internal class DefaultStateHolder<State>(
     override fun <T> addSource(
         flow: Flow<T>,
         scope: CoroutineScope,
-        block: suspend State.(T) -> State,
+        block: suspend (State, T) -> State,
     ): Job = scope.launch {
         flow.collect { value ->
             _state.update { state -> block(state, value) }
@@ -42,18 +43,18 @@ internal class DefaultStateHolder<State>(
     }
 
     /**
-     * @see StateHolder.combine
+     * @see StateHolder.addSource
      */
-    override fun <T> combine(
+    override fun <T> addSource(
         holder: StateHolder<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,
     ): Job = addSource(holder.state, scope, block)
 
     /**
-     * @see StateHolder.combine
+     * @see StateHolder.addSource
      */
-    override fun <T> combine(
+    override fun <T> addSource(
         owner: StateOwner<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,

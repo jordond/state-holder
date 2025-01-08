@@ -1,4 +1,4 @@
-package dev.stateholder.extensions
+package dev.stateholder.extensions.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,6 +11,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 
+@Suppress("MemberVisibilityCanBePrivate")
 public abstract class StateViewModel<State>(
     protected val stateHolder: StateHolder<State>,
 ) : ViewModel(), StateOwner<State> {
@@ -21,11 +22,19 @@ public abstract class StateViewModel<State>(
 
     override val state: StateFlow<State> = stateHolder.state
 
-    public fun <T> Flow<T>.collectToState(
+    protected fun <T> Flow<T>.mergeState(
         scope: CoroutineScope = viewModelScope,
         block: suspend (state: State, value: T) -> State,
     ): Job {
-
         return stateHolder.addSource(this, scope, block)
+    }
+
+    protected fun <T> StateOwner<T>.mergeState(
+        scope: CoroutineScope = viewModelScope,
+        block: suspend (state: State, value: T) -> State,
+    ): Job = state.mergeState(scope, block)
+
+    protected fun updateState(block: (State) -> State) {
+        stateHolder.update(block)
     }
 }

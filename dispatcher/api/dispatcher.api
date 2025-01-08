@@ -1,0 +1,34 @@
+public final class dev/stateholder/dispatcher/DebounceDispatcherKt {
+	public static final fun DebounceDispatcher (JLjava/util/List;Lkotlin/jvm/functions/Function1;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static synthetic fun DebounceDispatcher$default (JLjava/util/List;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static final fun Dispatcher (JLjava/util/List;Lkotlin/jvm/functions/Function1;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static synthetic fun Dispatcher$default (JLjava/util/List;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/stateholder/dispatcher/Dispatcher;
+}
+
+public abstract interface class dev/stateholder/dispatcher/Dispatcher {
+	public static final field Companion Ldev/stateholder/dispatcher/Dispatcher$Companion;
+	public abstract fun dispatch (Ljava/lang/Object;)V
+	public abstract fun invoke (Ljava/lang/Object;)V
+	public abstract fun relay (Ljava/lang/Object;)Lkotlin/jvm/functions/Function0;
+	public abstract fun relayOf (Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function3;
+	public abstract fun relayOf (Lkotlin/jvm/functions/Function4;)Lkotlin/jvm/functions/Function4;
+	public abstract fun relayOf (Lkotlin/jvm/functions/Function5;)Lkotlin/jvm/functions/Function5;
+	public abstract fun relayOf (Lkotlin/jvm/functions/Function6;)Lkotlin/jvm/functions/Function6;
+	public abstract fun relayOf (Lkotlin/reflect/KFunction;)Lkotlin/jvm/functions/Function1;
+	public abstract fun relayOf (Lkotlin/reflect/KFunction;)Lkotlin/jvm/functions/Function2;
+}
+
+public final class dev/stateholder/dispatcher/Dispatcher$Companion {
+}
+
+public final class dev/stateholder/dispatcher/Dispatcher$DefaultImpls {
+	public static fun invoke (Ldev/stateholder/dispatcher/Dispatcher;Ljava/lang/Object;)V
+	public static fun relay (Ldev/stateholder/dispatcher/Dispatcher;Ljava/lang/Object;)Lkotlin/jvm/functions/Function0;
+	public static fun relayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/jvm/functions/Function3;)Lkotlin/jvm/functions/Function3;
+	public static fun relayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/jvm/functions/Function4;)Lkotlin/jvm/functions/Function4;
+	public static fun relayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/jvm/functions/Function5;)Lkotlin/jvm/functions/Function5;
+	public static fun relayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/jvm/functions/Function6;)Lkotlin/jvm/functions/Function6;
+	public static fun relayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/reflect/KFunction;)Lkotlin/jvm/functions/Function1;
+	public static fun relayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/reflect/KFunction;)Lkotlin/jvm/functions/Function2;
+}
+

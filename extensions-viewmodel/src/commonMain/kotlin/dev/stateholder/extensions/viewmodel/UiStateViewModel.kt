@@ -1,7 +1,7 @@
 package dev.stateholder.extensions.viewmodel
 
 import dev.stateholder.EventHolder
-import dev.stateholder.StateHolder
+import dev.stateholder.StateContainer
 import dev.stateholder.StateProvider
 import dev.stateholder.stateContainer
 import kotlinx.collections.immutable.PersistentList
@@ -9,13 +9,13 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.StateFlow
 
 public abstract class UiStateViewModel<State, Event>(
-    stateHolder: StateHolder<State>,
-) : StateViewModel<State>(stateHolder), EventHolder<Event> {
+    stateContainer: StateContainer<State>,
+) : StateViewModel<State>(stateContainer), EventHolder<Event> {
     public constructor(stateProvider: StateProvider<State>) : this(stateContainer(stateProvider))
 
     public constructor(initialState: State) : this(stateContainer(initialState))
 
-    protected val eventContainer: StateHolder<PersistentList<Event>> =
+    protected val eventContainer: StateContainer<PersistentList<Event>> =
         stateContainer(persistentListOf())
 
     public override val events: StateFlow<PersistentList<Event>> = eventContainer.state

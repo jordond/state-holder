@@ -1,7 +1,7 @@
 package dev.stateholder.internal
 
 import app.cash.turbine.test
-import dev.stateholder.StateOwner
+import dev.stateholder.StateHolder
 import dev.stateholder.provideState
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +13,7 @@ class DefaultStateHolderTest {
 
     @Test
     fun shouldCreateStateHolderWithInitialState() = runTest {
-        val holder = DefaultStateHolder(provideState(123))
+        val holder = DefaultStateContainer(provideState(123))
 
         holder.state.test {
             awaitItem() shouldBe 123
@@ -23,7 +23,7 @@ class DefaultStateHolderTest {
 
     @Test
     fun shouldUpdateState() = runTest {
-        val holder = DefaultStateHolder(provideState(0))
+        val holder = DefaultStateContainer(provideState(0))
 
         holder.state.test {
             awaitItem() shouldBe 0
@@ -40,7 +40,7 @@ class DefaultStateHolderTest {
 
     @Test
     fun shouldNotEmitWhenStateIsUnchanged() = runTest {
-        val holder = DefaultStateHolder(provideState(0))
+        val holder = DefaultStateContainer(provideState(0))
 
         holder.state.test {
             awaitItem() shouldBe 0
@@ -57,13 +57,13 @@ class DefaultStateHolderTest {
 
     @Test
     fun shouldAddSourceAndCollectUpdates() = runTest {
-        val holder = DefaultStateHolder(provideState(0))
+        val holder = DefaultStateContainer(provideState(0))
         val source = MutableStateFlow(10)
 
         holder.state.test {
             awaitItem() shouldBe 0
 
-            val job = holder.addSource(source, this@runTest) { state, value ->
+            val job = holder.mergeState(source, this@runTest) { state, value ->
                 state + value
             }
 
@@ -82,13 +82,13 @@ class DefaultStateHolderTest {
 
     @Test
     fun shouldAddSourceWithStateOwner() = runTest {
-        val holder = DefaultStateHolder(provideState(0))
-        val owner = TestStateOwner(10)
+        val holder = DefaultStateContainer(provideState(0))
+        val owner = TestStateHolder(10)
 
         holder.state.test {
             awaitItem() shouldBe 0
 
-            val job = holder.addSource(owner, this@runTest) { state1, state2 ->
+            val job = holder.mergeState(owner, this@runTest) { state1, state2 ->
                 state1 + state2
             }
 
@@ -107,13 +107,13 @@ class DefaultStateHolderTest {
 
     @Test
     fun shouldAddSourceWithOtherStateHolder() = runTest {
-        val holder1 = DefaultStateHolder(provideState(0))
-        val holder2 = DefaultStateHolder(provideState(10))
+        val holder1 = DefaultStateContainer(provideState(0))
+        val holder2 = DefaultStateContainer(provideState(10))
 
         holder1.state.test {
             awaitItem() shouldBe 0
 
-            val job = holder1.addSource(holder2, this@runTest) { state1, state2 ->
+            val job = holder1.mergeState(holder2, this@runTest) { state1, state2 ->
                 state1 + state2
             }
 
@@ -130,7 +130,7 @@ class DefaultStateHolderTest {
         }
     }
 
-    private class TestStateOwner(initialValue: Int) : StateOwner<Int> {
+    private class TestStateHolder(initialValue: Int) : StateHolder<Int> {
         private val _state = MutableStateFlow(initialValue)
         override val state: StateFlow<Int> = _state
 

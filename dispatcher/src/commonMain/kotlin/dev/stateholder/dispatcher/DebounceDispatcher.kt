@@ -16,6 +16,11 @@ public fun <Action> DebounceDispatcher(
         }
 
         val currentTime = Clock.System.now().toEpochMilliseconds()
+        
+        lookup.entries.removeAll { (_, timestamp) ->
+            currentTime - timestamp > debounce
+        }
+
         val lastTime = lookup[action]
         if (lastTime == null || currentTime - lastTime > debounce) {
             lookup[action] = currentTime

@@ -10,6 +10,7 @@ kotlin = "2.1.0"
 kotlinx-collections = "0.3.8"
 kotlinx-coroutines = "1.10.1"
 kotlinx-datetime = "0.6.1"
+kotlinx-kover = "0.9.0"
 versions = "0.51.0"
 compose-multiplatform = "1.7.3"
 androidx-core-ktx = "1.15.0"
@@ -23,6 +24,8 @@ binaryCompatibility = "0.17.0"
 dokka = "2.0.0"
 publish = "0.30.0"
 kermit = "2.0.5"
+kotest = "5.9.1"
+turbine = "1.2.0"
 voyager = "1.1.0-beta03"
 
 [libraries]
@@ -39,8 +42,11 @@ kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-c
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-screenModel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 
@@ -53,6 +59,7 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 dependencies = { id = "com.github.ben-manes.versions", version.ref = "versions" }
 binaryCompatibility = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "binaryCompatibility" }
+kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kotlinx-kover" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
 

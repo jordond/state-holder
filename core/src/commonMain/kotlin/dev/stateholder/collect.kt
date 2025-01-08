@@ -47,7 +47,6 @@ public fun <State, T> StateOwner<State>.collectState(
     block: (T) -> Unit,
 ): Job = state.map(selector).lifecycleCollect(lifecycleOwner, minActiveState, context, block)
 
-
 /**
  * Launch a coroutine and repeat the [Flow.collect] on the given [minActiveState].
  *

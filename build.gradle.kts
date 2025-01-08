@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlinx.kover)
     alias(libs.plugins.dokka)
     alias(libs.plugins.dependencies)
     alias(libs.plugins.binaryCompatibility)
@@ -23,6 +24,7 @@ tasks.withType<DokkaMultiModuleTask>().configureEach {
     outputDirectory.set(rootDir.resolve("dokka"))
 }
 
+// TODO: Is this still needed?
 allprojects {
     // Workaround for https://github.com/Kotlin/dokka/issues/2977.
     // We disable the C Interop IDE metadata task when generating documentation using Dokka.

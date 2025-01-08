@@ -13,10 +13,6 @@ import kotlin.reflect.KProperty
  * The [state] property is the only property that should be exposed to the UI level. All updating
  * should be handled separately.
  *
- * Example usage:
- *
- *
- *
  * @param[State] The type of the state.
  */
 public interface StateHolder<State> {
@@ -27,7 +23,7 @@ public interface StateHolder<State> {
     public val state: StateFlow<State>
 
     /**
-     * Add a source of state from another [Flow].
+     * One way subscription to update the state with another [flow].
      *
      * This is useful when you need to update the [state] based off of another [Flow]. The [flow]
      * will be collected and [block] will be invoked in order to map the [T] value from [flow] to
@@ -48,7 +44,7 @@ public interface StateHolder<State> {
     ): Job
 
     /**
-     * Combine the state with another [StateHolder].
+     * One way subscription to update the state with another [holder].
      *
      * This is useful when you need to update the [state] based off of another [StateHolder]. The
      * [holder] will be observed and [block] will be invoked in order to map the [T] value from
@@ -61,14 +57,14 @@ public interface StateHolder<State> {
      * @param[scope] The scope to use for observing the [holder].
      * @return The [Job] of the observation.
      */
-    public fun <T> combine(
+    public fun <T> addSource(
         holder: StateHolder<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,
     ): Job
 
     /**
-     * Combine the state with another [StateOwner].
+     * One way subscription to update the state with another [owner].
      *
      * This is useful when you need to update the [state] based off of another [StateOwner]. The
      * [owner] will be observed and [block] will be invoked in order to map the [T] value from
@@ -81,7 +77,7 @@ public interface StateHolder<State> {
      * @param[scope] The scope to use for observing the [owner].
      * @return The [Job] of the observation.
      */
-    public fun <T> combine(
+    public fun <T> addSource(
         owner: StateOwner<T>,
         scope: CoroutineScope,
         block: suspend (State, T) -> State,
@@ -136,10 +132,8 @@ public fun <State> stateContainer(
     initialState: State,
 ): StateHolder<State> = StateHolder.create(provideState(initialState))
 
-public fun <T, State> Flow<T>.collectToState(
+public fun <T, State> Flow<T>.combineWithState(
     container: StateHolder<State>,
     scope: CoroutineScope,
     block: suspend (state: State, value: T) -> State,
-): Job {
-    return container.addSource(this, scope, block)
-}
+): Job = container.addSource(this, scope, block)

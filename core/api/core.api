@@ -12,9 +12,9 @@ public abstract interface class dev/stateholder/EventHolder {
 
 public abstract interface class dev/stateholder/StateHolder {
 	public static final field Companion Ldev/stateholder/StateHolder$Companion;
+	public abstract fun addSource (Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public abstract fun addSource (Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	public abstract fun addSource (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public abstract fun combine (Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
-	public abstract fun combine (Ldev/stateholder/StateOwner;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	public abstract fun getState ()Lkotlinx/coroutines/flow/StateFlow;
 	public abstract fun getValue (Ldev/stateholder/StateOwner;Lkotlin/reflect/KProperty;)Lkotlinx/coroutines/flow/StateFlow;
 	public abstract fun update (Lkotlin/jvm/functions/Function1;)V
@@ -28,7 +28,7 @@ public final class dev/stateholder/StateHolder$DefaultImpls {
 }
 
 public final class dev/stateholder/StateHolderKt {
-	public static final fun collectToState (Lkotlinx/coroutines/flow/Flow;Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
+	public static final fun combineWithState (Lkotlinx/coroutines/flow/Flow;Ldev/stateholder/StateHolder;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/Job;
 	public static final fun stateContainer (Ldev/stateholder/StateProvider;)Ldev/stateholder/StateHolder;
 	public static final fun stateContainer (Ljava/lang/Object;)Ldev/stateholder/StateHolder;
 }

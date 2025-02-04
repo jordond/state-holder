@@ -50,13 +50,13 @@ public fun <Action> rememberDispatcher(block: (Action) -> Unit): Dispatcher<Acti
 @Composable
 public fun <Action> rememberDispatcher(
     debounce: Long,
-    exclude: List<Action> = emptyList(),
+    exclude: (Action) -> Boolean = { false },
     block: (Action) -> Unit,
 ): Dispatcher<Action> = remember(debounce, exclude, block) { Dispatcher(debounce, exclude, block) }
 
 @Composable
 public fun <Action> rememberDebounceDispatcher(
     debounce: Long = 100,
-    exclude: List<Action> = emptyList(),
+    exclude: (Action) -> Boolean = { false },
     block: (Action) -> Unit,
 ): Dispatcher<Action> = rememberDispatcher(debounce, exclude, block)

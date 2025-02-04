@@ -57,7 +57,7 @@ class DebounceDispatcherTest {
         var dispatchCount = 0
         val dispatcher = DebounceDispatcher<String>(
             debounce = 100,
-            exclude = listOf("excluded"),
+            exclude = { it == "excluded" },
             block = { dispatchCount++ }
         )
 

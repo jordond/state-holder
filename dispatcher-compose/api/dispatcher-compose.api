@@ -1,6 +1,6 @@
 public final class dev/stateholder/dispatcher/RememberDispatcherKt {
-	public static final fun rememberDebounceDispatcher (JLjava/util/List;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Ldev/stateholder/dispatcher/Dispatcher;
-	public static final fun rememberDispatcher (JLjava/util/List;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Ldev/stateholder/dispatcher/Dispatcher;
+	public static final fun rememberDebounceDispatcher (JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Ldev/stateholder/dispatcher/Dispatcher;
+	public static final fun rememberDispatcher (JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)Ldev/stateholder/dispatcher/Dispatcher;
 	public static final fun rememberDispatcher (Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;I)Ldev/stateholder/dispatcher/Dispatcher;
 	public static final fun rememberRelay (Ldev/stateholder/dispatcher/Dispatcher;Ljava/lang/Object;Landroidx/compose/runtime/Composer;I)Lkotlin/jvm/functions/Function0;
 	public static final fun rememberRelayOf (Ldev/stateholder/dispatcher/Dispatcher;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lkotlin/jvm/functions/Function3;

@@ -5,18 +5,18 @@ import kotlinx.datetime.Clock
 @Suppress("FunctionName")
 public fun <Action> DebounceDispatcher(
     debounce: Long = 100,
-    exclude: List<Action> = emptyList(),
+    exclude: (Action) -> Boolean = { false },
     block: (Action) -> Unit,
 ): Dispatcher<Action> = object : Dispatcher<Action> {
     private val lookup: HashMap<Action, Long> = hashMapOf()
 
     override fun dispatch(action: Action) {
-        if (exclude.contains(action)) {
+        if (exclude(action)) {
             return block(action)
         }
 
         val currentTime = Clock.System.now().toEpochMilliseconds()
-        
+
         lookup.entries.removeAll { (_, timestamp) ->
             currentTime - timestamp > debounce
         }
@@ -31,6 +31,6 @@ public fun <Action> DebounceDispatcher(
 
 public fun <Action> Dispatcher(
     debounce: Long,
-    exclude: List<Action> = emptyList(),
+    exclude: (Action) -> Boolean = { false },
     block: (Action) -> Unit,
 ): Dispatcher<Action> = DebounceDispatcher(debounce, exclude, block)

@@ -34,7 +34,7 @@ import dev.jordond.stateholder.demo.AppAction.SetCount
 import dev.jordond.stateholder.demo.AppAction.TriggerEvent
 import dev.jordond.stateholder.demo.AppModel.Event
 import dev.stateholder.dispatcher.Dispatcher
-import dev.stateholder.dispatcher.rememberDispatcher
+import dev.stateholder.dispatcher.rememberDebounceDispatcher
 import dev.stateholder.dispatcher.rememberRelay
 import dev.stateholder.dispatcher.rememberRelayOf
 import dev.stateholder.extensions.HandleEvents
@@ -67,7 +67,10 @@ class AppScreen : Screen {
         ) { innerPadding ->
             AppContent(
                 count = state.count,
-                dispatcher = rememberDispatcher(debounce = 100L) { action ->
+                dispatcher = rememberDebounceDispatcher(
+                    debounce = 100L,
+                    exclude = { it is TriggerEvent },
+                ) { action ->
                     when (action) {
                         is Decrement -> model.decrement()
                         is Increment -> model.increment()

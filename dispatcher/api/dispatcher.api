@@ -1,8 +1,8 @@
 public final class dev/stateholder/dispatcher/DebounceDispatcherKt {
-	public static final fun DebounceDispatcher (JLjava/util/List;Lkotlin/jvm/functions/Function1;)Ldev/stateholder/dispatcher/Dispatcher;
-	public static synthetic fun DebounceDispatcher$default (JLjava/util/List;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/stateholder/dispatcher/Dispatcher;
-	public static final fun Dispatcher (JLjava/util/List;Lkotlin/jvm/functions/Function1;)Ldev/stateholder/dispatcher/Dispatcher;
-	public static synthetic fun Dispatcher$default (JLjava/util/List;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static final fun DebounceDispatcher (JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static synthetic fun DebounceDispatcher$default (JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static final fun Dispatcher (JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Ldev/stateholder/dispatcher/Dispatcher;
+	public static synthetic fun Dispatcher$default (JLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ldev/stateholder/dispatcher/Dispatcher;
 }
 
 public abstract interface class dev/stateholder/dispatcher/Dispatcher {
